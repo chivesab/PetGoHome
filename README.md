@@ -40,9 +40,7 @@
 5. ### Dataset links
     * #### dataset sourse: Animal Shelters in North America ：
         https://www.kaggle.com/aaronschlegel/petfinder-animal-shelters-database
-
-    
-
-
-
-
+        
+        
+# Architecture diagram
+![image](https://user-images.githubusercontent.com/28977052/110420358-fa987800-804f-11eb-87d9-f8c262e90ab2.png)
