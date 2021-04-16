@@ -11,8 +11,8 @@ public class UserCreate {
 
         try {
             // MySQL Select Query Tutorial
-            String createQueryStatement = "SELECT username, hash_password, phone FROM Users WHERE username = ? AND hash_password" +
-                    " = ? AND phone = ?"; //TODO write query statement with "?" to be filled in
+            String createQueryStatement = "INSERT INTO Users (username, hash_password, phone) VALUES (?, ?, ?)";
+            // TO DO's hash password function
 
             preparedStatement = databaseConnector.team10spring2021cmpe272.prepareStatement(createQueryStatement);
 

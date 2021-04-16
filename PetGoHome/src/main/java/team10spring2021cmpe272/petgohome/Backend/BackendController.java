@@ -1,5 +1,6 @@
 package team10spring2021cmpe272.petgohome.Backend;
 
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,14 +17,11 @@ import java.util.List;
 import team10spring2021cmpe272.petgohome.MySQLConnector.MySQLConnector;
 import team10spring2021cmpe272.petgohome.BackEndUtilities.PasswordHasher;
 import team10spring2021cmpe272.petgohome.BackEndUtilities.ResultSetConvertor;
+import team10spring2021cmpe272.petgohome.UserDAL.UserRead;
+import team10spring2021cmpe272.petgohome.UserDAL.UserCreate;
 
 @RestController
 public class BackendController {
-    private boolean isValid(String uuidAsString, String accountName) {
-        //this.cleanSessionKeys(); // remove all old session keys (optional)
-        //TODO: send information to SessionKeyManager to validate the key
-        return false;
-    }
 
     /*
      * userReqBody
@@ -34,16 +32,15 @@ public class BackendController {
      * returns: List containing the session key for the current session
      */
     @PostMapping("/users/login")
-    public ResponseEntity<List<String>> validateAccount(@RequestBody User userReqBody) throws Exception {
-
+    public ResponseEntity<List<User>> validateAccount(@RequestBody User userReqBody) throws Exception {
+        // I use the simplest way to validate account, which is by user name
         MySQLConnector myConnector = new MySQLConnector();
         myConnector.makeJDBCConnection();
 
-        String keyOwner = userReqBody.getUserName();
-        //TODO: send the above field to SessionKeyManager to create the session key entry in database
-        //retrieve the the session key via SessionKeyManager and send it back in the response message body
+        ResultSet resultSet = UserRead.readUsersByUsernameAndHPass(userReqBody.getUserName(), userReqBody.getUserHashedPassword(), myConnector);
+        List<User> userList = ResultSetConvertor.convertToUserList(resultSet);
         myConnector.closeJDBCConnection();
-        return new ResponseEntity<List<String>>(new LinkedList<String>(Arrays.asList(/*TODO*/"session key here")), HttpStatus.OK)
+        return new ResponseEntity<List<User>>(userList, HttpStatus.OK);
     }
 
     /*
@@ -55,13 +52,30 @@ public class BackendController {
      */
     @PostMapping("/users/create")
     public ResponseEntity<List<String>> createUser(@RequestBody User userReqBody) throws Exception {
-        //TODO:
-
+        //TO DO's - hasn't done isValid() function
         //check to see if there already exists a user with that username
         //if already exists: return an error.
         //else: send user information to UserDAL for account creation
 
-        return null;
+        //get mysql connection
+        MySQLConnector myConnector = new MySQLConnector();
+        myConnector.makeJDBCConnection();
+
+        // check if user exists or not
+        ResultSet resultSet = UserRead.readUsersByUsernameAndHPass(userReqBody.getUserName(), userReqBody.getUserHashedPassword(), myConnector);
+        List<User> userList = ResultSetConvertor.convertToUserList(resultSet);
+        boolean empty = userList.isEmpty();
+        if (empty == true){  // user doesn't exist
+            UserCreate.createUser(userReqBody.getUserName(), userReqBody.getUserHashedPassword(), userReqBody.getphone(), myConnector);
+            // close mysql connection
+            myConnector.closeJDBCConnection();
+            return null;
+        }
+        else{
+            // close mysql connection
+            myConnector.closeJDBCConnection();
+            throw new Exception(userReqBody.getUserName() + " already exists");
+        }
     }
 }
 
