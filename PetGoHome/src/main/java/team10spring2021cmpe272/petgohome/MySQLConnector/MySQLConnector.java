@@ -12,7 +12,7 @@ public class MySQLConnector {
     public void makeJDBCConnection() {
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             SystemOptionalLogging.log("Congrats - Seems your MySQL JDBC Driver Registered!");
         } catch (ClassNotFoundException e) {
             SystemOptionalLogging.log("Sorry, couldn't found JDBC driver. Make sure you have added JDBC Maven Dependency Correctly");

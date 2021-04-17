@@ -15,7 +15,7 @@ public class ResultSetConvertor {
 
     /**
      * Converts a mysql query result set to a JSONArray
-     * @param type is ResultSet
+     * @param resultSet is ResultSet
      * @return JSONArray conversion of the result set
      */
     public static JSONArray convertToJSON(ResultSet resultSet)
@@ -35,7 +35,7 @@ public class ResultSetConvertor {
 
     /**
      * Converts a mysql query result set to a list of Identity
-     * @param ResultSet of Identity
+     * @param resultSet of Identity
      * @return List<Identity> conversion of ResultSet
      */
     public static List<User> convertToUserList(ResultSet resultSet) throws SQLException {

@@ -48,13 +48,10 @@ public class BackendController {
      *
      * userPassword : String
      * userName : String
-     * roleType : String (valid values: "admin" or "user")
+     * roleType : String (valid values: "user")
      */
     @PostMapping("/users/create")
     public ResponseEntity<List<String>> createUser(@RequestBody User userReqBody) throws Exception {
-        //TO DO's - hasn't done isValid() function
-        //check to see if there already exists a user with that username
-        //if already exists: return an error.
         //else: send user information to UserDAL for account creation
 
         //get mysql connection
@@ -66,7 +63,7 @@ public class BackendController {
         List<User> userList = ResultSetConvertor.convertToUserList(resultSet);
         boolean empty = userList.isEmpty();
         if (empty == true){  // user doesn't exist
-            UserCreate.createUser(userReqBody.getUserName(), userReqBody.getUserHashedPassword(), userReqBody.getphone(), myConnector);
+            UserCreate.createUser(userReqBody.getUserName(), PasswordHasher.generateStrongPasswordHash(userReqBody.getUserPassword()), userReqBody.getphone(), myConnector);
             // close mysql connection
             myConnector.closeJDBCConnection();
             return null;

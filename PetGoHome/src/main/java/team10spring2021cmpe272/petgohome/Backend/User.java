@@ -6,6 +6,9 @@ public class User {
     private String userHashedPassword;
     private String phone;
 
+    public User() {
+    }
+
     public User(String userName, String userHashedPassword, String phone) {
         this.userName = userName;
         this.userHashedPassword = userHashedPassword;
