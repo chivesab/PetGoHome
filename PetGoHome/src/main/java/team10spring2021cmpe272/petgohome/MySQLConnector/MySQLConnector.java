@@ -22,9 +22,12 @@ public class MySQLConnector {
 
         try {
             // DriverManager: The basic service for managing a set of JDBC drivers.
-            String jdbcConnString = System.getenv("jdbcConnectionString");
-            String jdbcUser = System.getenv("jdbcUser");
-            String jdbcPassword = System.getenv("jdbcPassword");
+            //String jdbcConnString = System.getenv("jdbcConnectionString");
+            //String jdbcUser = System.getenv("jdbcUser");
+            //String jdbcPassword = System.getenv("jdbcPassword");
+            String jdbcConnString = "jdbc:mysql://localhost:3306/PetGoHome?serverTimezone=GMT-7";
+            String jdbcUser = "root";
+            String jdbcPassword="password123";
 
             team10spring2021cmpe272 = DriverManager.getConnection(jdbcConnString, jdbcUser, jdbcPassword);
             if (team10spring2021cmpe272 != null) {
