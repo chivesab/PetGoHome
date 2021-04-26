@@ -1,9 +1,12 @@
 package team10spring2021cmpe272.petgohome.Backend;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+@Builder(toBuilder=true)
 public class Pet {
+
     @Getter
     @Setter
     private Long petId;
