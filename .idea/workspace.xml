@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf0651e9-dc19-42ac-96d4-bb8267f2f14d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/json-20210307.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PetGoHome.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/src/main/java/team10spring2021cmpe272/petgohome/Backend/MySQLConnector/MySQLConnector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/src/main/java/team10spring2021cmpe272/petgohome/Backend/PetGoHomeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/PetGoHome/src/main/java/team10spring2021cmpe272/petgohome/Backend/PetGoHomeApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PetGoHome/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/target/classes/team10spring2021cmpe272/petgohome/BackEndUtilities/PasswordHasher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/target/classes/team10spring2021cmpe272/petgohome/BackEndUtilities/ResultSetConvertor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/target/classes/team10spring2021cmpe272/petgohome/BackEndUtilities/SystemOptionalLogging.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/target/classes/team10spring2021cmpe272/petgohome/Backend/BackendController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/target/classes/team10spring2021cmpe272/petgohome/Backend/PetGoHomeApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/target/classes/team10spring2021cmpe272/petgohome/Backend/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/target/classes/team10spring2021cmpe272/petgohome/MySQLConnector/MySQLConnector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/target/classes/team10spring2021cmpe272/petgohome/UserDAL/UserCreate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/target/classes/team10spring2021cmpe272/petgohome/UserDAL/UserRead.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetGoHome/target/test-classes/team10spring2021cmpe272/petgohome/PetGoHomeApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +77,10 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Background" />
   </component>
-  <component name="RunManager" selected="Spring Boot.PetGoHomeApplication (1)">
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RunManager">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -76,34 +94,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PetGoHomeApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="PetGoHomeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="PetGoHome" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="team10spring2021cmpe272.petgohome.Backend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="team10spring2021cmpe272.petgohome.Backend.PetGoHomeApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <envs>
-        <env name="SysOLogEnabled" value="true" />
-        <env name="jdbcConnString" value="jdbc:mysql://localhost:8080/PetGoHome?serverTimezone=GMT-7" />
-        <env name="jdbcUser" value="root" />
+        <env name="jdbcConnectionString" value="jdbc:mysql://localhost:3306/SpringBackEnd?serverTimezone=America/Los_Angeles" />
+        <env name="jdbcUsername" value="root" />
         <env name="jdbcPassword" value="password123" />
       </envs>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PetGoHomeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="PetGoHome" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.petgohome.PetGoHomeApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Spring Boot.PetGoHomeApplication" />
-      <item itemvalue="Spring Boot.PetGoHomeApplication (1)" />
-    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.PetGoHomeApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -116,7 +131,7 @@
       <workItem from="1618373998829" duration="2140000" />
       <workItem from="1618376192414" duration="2136000" />
       <workItem from="1618380263490" duration="7036000" />
-      <workItem from="1618549158159" duration="17096000" />
+      <workItem from="1618549158159" duration="17840000" />
     </task>
     <servers />
   </component>

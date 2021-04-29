@@ -63,7 +63,8 @@ public class BackendController {
         List<User> userList = ResultSetConvertor.convertToUserList(resultSet);
         boolean empty = userList.isEmpty();
         if (empty == true){  // user doesn't exist
-            UserCreate.createUser(userReqBody.getUserName(), PasswordHasher.generateStrongPasswordHash(userReqBody.getUserPassword()), userReqBody.getphone(), myConnector);
+            UserCreate.createUser(userReqBody.getUserName(), userReqBody.getEmail(),
+                    PasswordHasher.generateStrongPasswordHash(userReqBody.getUserPassword()), userReqBody.getPhone(), myConnector);
             // close mysql connection
             myConnector.closeJDBCConnection();
             return null;

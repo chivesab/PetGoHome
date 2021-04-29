@@ -7,18 +7,19 @@ import java.sql.SQLException;
 public class UserCreate {
     public static PreparedStatement preparedStatement = null;
 
-    public static int createUser(String userName, String hPassword, String phone, MySQLConnector databaseConnector) {
+    public static int createUser(String userName, String email, String hPassword, String phone, MySQLConnector databaseConnector) {
 
         try {
             // MySQL Select Query Tutorial
-            String createQueryStatement = "INSERT INTO Users (username, hash_password, phone) VALUES (?, ?, ?)";
+            String createQueryStatement = "INSERT INTO Users (username, email, hash_password, phone) VALUES (?, ?, ?, ?)";
             // TO DO's hash password function
 
             preparedStatement = databaseConnector.team10spring2021cmpe272.prepareStatement(createQueryStatement);
 
             preparedStatement.setString(1, userName);
-            preparedStatement.setString(2, hPassword);
-            preparedStatement.setString(3, phone);
+            preparedStatement.setString(2, email);
+            preparedStatement.setString(3, hPassword);
+            preparedStatement.setString(4, phone);
 
             // Execute the Query, and get a java ResultSet
             preparedStatement.executeUpdate();

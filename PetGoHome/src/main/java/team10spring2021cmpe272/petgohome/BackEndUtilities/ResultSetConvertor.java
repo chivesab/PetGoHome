@@ -44,8 +44,10 @@ public class ResultSetConvertor {
         while (resultSet.next()) {
             String userName = resultSet.getString("Username");
             String userPassword = resultSet.getString("Hashed_Password");
+            String email = resultSet.getString("email");
+            String phone = resultSet.getString("phone");
 
-            User acc = new User(userName, userPassword);
+            User acc = new User(userName, email, userPassword, phone);
 
             ll.add(acc);
         }
