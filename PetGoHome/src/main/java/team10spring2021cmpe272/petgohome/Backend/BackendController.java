@@ -7,13 +7,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
+import team10spring2021cmpe272.petgohome.Dao.PetCreate;
+import team10spring2021cmpe272.petgohome.Dao.SearchPet;
 import team10spring2021cmpe272.petgohome.MySQLConnector.MySQLConnector;
 import team10spring2021cmpe272.petgohome.BackEndUtilities.PasswordHasher;
 import team10spring2021cmpe272.petgohome.BackEndUtilities.ResultSetConvertor;
@@ -74,6 +72,34 @@ public class BackendController {
             myConnector.closeJDBCConnection();
             throw new Exception(userReqBody.getUserName() + " already exists");
         }
+    }
+
+    @PostMapping("/pets/upload")
+    public ResponseEntity<List<String>> createPets(@RequestBody Pet userReqBody) throws Exception {
+        MySQLConnector myConnector = new MySQLConnector();
+        myConnector.makeJDBCConnection();
+
+        PetCreate.createPet(userReqBody.getPetid(), userReqBody.getOwnerid(), userReqBody.getPet_name(),
+                userReqBody.getRecord_type(), userReqBody.getType(), userReqBody.getWeight(),
+                userReqBody.getHeight(), userReqBody.getGender(), userReqBody.getBreed(),
+                userReqBody.getColor(), userReqBody.getHair_length(), userReqBody.getAge(),
+                userReqBody.getPhone(), userReqBody.getEmail(), userReqBody.getMissing_date(),
+                userReqBody.getLost_state(), userReqBody.getLost_county(), userReqBody.getLost_zip(),
+                userReqBody.getLost_location(), userReqBody.getPictureUrl(), userReqBody.getDescription(), myConnector);
+        myConnector.closeJDBCConnection();
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PostMapping("/pets/search")
+    public ResponseEntity<List<Pet>> searchPets(@RequestBody Pet userReqBody) throws Exception {
+        MySQLConnector myConnector = new MySQLConnector();
+        myConnector.makeJDBCConnection();
+
+        ResultSet resutSet = SearchPet.searchpets(userReqBody.getLost_state(), userReqBody.getLost_county(), userReqBody.getRecord_type(),
+                userReqBody.getDays(), myConnector);
+        List<Pet> petList = ResultSetConvertor.convertToPetList(resutSet);
+        myConnector.closeJDBCConnection();
+        return new ResponseEntity<List<Pet>>(petList, HttpStatus.OK);
     }
 }
 

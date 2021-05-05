@@ -20,6 +20,6 @@ public class PetServiceImpl implements PetService {
 
     @Override
     public void removeYourPet(Pet pet) {
-        petDao.deletePetByPetId(pet.getPetId());
+        petDao.deletePetByPetId(pet.getPetid());
     }
 }
