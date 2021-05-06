@@ -8,6 +8,7 @@ import Maps from "./GoogleMaps/maps";
 import FileUpload from "../components/Upload/upload";
 import pdfGenerator from "./PDFgenerator/pdfgenerator";
 import LandingPage from "./LandingPage/landingpage";
+import Info from "./Info/info";
 
 class Main extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class Main extends Component {
           <Route path="/upload" component={FileUpload} />
           <Route path="/pdf" component={pdfGenerator} />
           <Route path="/landingpage" component={LandingPage} />
+          <Route path="/info" component={Info} />
         </div>
       </div>
     );

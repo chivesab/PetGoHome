@@ -24,6 +24,7 @@ import Reunion4 from "../../Icons/Reunion4.jpeg";
 import Reunion6 from "../../Icons/Reunion6.jpeg";
 import FileUpload from "../Upload/upload";
 import "./home.css";
+import GoogleMap from "../GoogleMaps/GoogleMap";
 
 // Image Carousel
 const contentStyle = {
@@ -137,6 +138,16 @@ export default function Home(props) {
       </>
     );
   };
+
+  // const carouselText = () => {
+  //   return (
+  //     <>
+  //       <Carousel autoplay effect="fade">
+  //         <div>This is just a text</div>
+  //       </Carousel>
+  //     </>
+  //   );
+  // };
 
   return (
     <div>
@@ -340,12 +351,26 @@ export default function Home(props) {
             </Paper>
             <Paper
               className={GridStyles.paper}
-              style={{ marginTop: "25px", backgroundColor: "#D3D3D3" }}
+              style={{
+                marginTop: "40px",
+                backgroundColor: "#D3D3D3",
+                height: "70%",
+              }}
               elevation={8}
             >
               {" "}
               <h3 className="appSubHeadings">Location</h3>
               Location where you have lost or found a pet.
+              <div
+                style={{
+                  position: "absolute",
+                  width: "23%",
+                  height: "30%",
+                  marginTop: "10px",
+                }}
+              >
+                <GoogleMap />
+              </div>
             </Paper>
           </Grid>
         </Grid>
