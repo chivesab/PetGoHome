@@ -44,12 +44,12 @@ public class ResultSetConvertor {
         List<User> ll = new LinkedList<User>();
 
         while (resultSet.next()) {
-            String userName = resultSet.getString("Username");
-            String userPassword = resultSet.getString("Hashed_Password");
+            String username = resultSet.getString("username");
+            String password = resultSet.getString("password");
             String email = resultSet.getString("email");
             String phone = resultSet.getString("phone");
 
-            User acc = new User(userName, email, userPassword, phone);
+            User acc = new User(username, email, password, phone);
 
             ll.add(acc);
         }

@@ -35,8 +35,27 @@ public class BackendController {
         MySQLConnector myConnector = new MySQLConnector();
         myConnector.makeJDBCConnection();
 
-        ResultSet resultSet = UserRead.readUsersByUsernameAndHPass(userReqBody.getUserName(), userReqBody.getUserHashedPassword(), myConnector);
+        ResultSet resultSet = UserRead.readUsersByUsernameAndPass(userReqBody.getUsername(), userReqBody.getPassword(), myConnector);
         List<User> userList = ResultSetConvertor.convertToUserList(resultSet);
+        myConnector.closeJDBCConnection();
+        return new ResponseEntity<List<User>>(userList, HttpStatus.OK);
+    }
+
+    /*
+     * userReqBody
+     *
+     * userName : String
+     *
+     * returns: List user information for given username
+     */
+    @PostMapping("/users/finduser")
+    public ResponseEntity<List<User>> finduser(@RequestBody User userReqBody) throws Exception {
+        MySQLConnector myConnector = new MySQLConnector();
+        myConnector.makeJDBCConnection();
+
+        ResultSet resultSet = UserRead.findUserByusername(userReqBody.getUsername(), myConnector);
+        List<User> userList = ResultSetConvertor.convertToUserList(resultSet);
+        System.out.println(userList);
         myConnector.closeJDBCConnection();
         return new ResponseEntity<List<User>>(userList, HttpStatus.OK);
     }
@@ -57,12 +76,12 @@ public class BackendController {
         myConnector.makeJDBCConnection();
 
         // check if user exists or not
-        ResultSet resultSet = UserRead.readUsersByUsernameAndHPass(userReqBody.getUserName(), userReqBody.getUserHashedPassword(), myConnector);
+        ResultSet resultSet = UserRead.readUsersByUsernameAndPass(userReqBody.getUsername(), userReqBody.getPassword(), myConnector);
         List<User> userList = ResultSetConvertor.convertToUserList(resultSet);
         boolean empty = userList.isEmpty();
         if (empty == true){  // user doesn't exist
-            UserCreate.createUser(userReqBody.getUserName(), userReqBody.getEmail(),
-                    PasswordHasher.generateStrongPasswordHash(userReqBody.getUserPassword()), userReqBody.getPhone(), myConnector);
+            UserCreate.createUser(userReqBody.getUsername(), userReqBody.getEmail(),
+                    PasswordHasher.generateStrongPasswordHash(userReqBody.getPassword()), userReqBody.getPhone(), myConnector);
             // close mysql connection
             myConnector.closeJDBCConnection();
             return null;
@@ -70,7 +89,7 @@ public class BackendController {
         else{
             // close mysql connection
             myConnector.closeJDBCConnection();
-            throw new Exception(userReqBody.getUserName() + " already exists");
+            throw new Exception(userReqBody.getUsername() + " already exists");
         }
     }
 
