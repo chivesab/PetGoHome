@@ -17,7 +17,6 @@ public class PasswordHasher {
         int iterations = 1000;
         char[] chars = password.toCharArray();
         byte[] salt = getSalt();
-
         PBEKeySpec spec = new PBEKeySpec(chars, salt, iterations, 64 * 8);
         SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         byte[] hash = skf.generateSecret(spec).getEncoded();
