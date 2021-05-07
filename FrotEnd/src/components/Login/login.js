@@ -15,8 +15,10 @@ import Icon from "@material-ui/core/Icon";
 import GoogleLogin from "react-google-login";
 import axios from "axios";
 import Divider from "@material-ui/core/Divider";
+import { useHistory } from "react-router-dom";
 
 export default function Login(props) {
+  const history = useHistory();
   const classes = makeStyles((theme) => ({
     root: {
       "& > *": {
@@ -84,6 +86,26 @@ export default function Login(props) {
     let data = {
       username,
       password,
+    };
+    axios
+      .post(`http://localhost:8080/admin/signin`, data)
+      .then((response) => {
+        if (response.status === 200) {
+          sessionStorage.setItem("loggedInType", "admin");
+          sessionStorage.setItem("id", response.data._id);
+          history.push("/home");
+        }
+      })
+      .catch((err) => {
+        window.alert("wrong credentials");
+        console.log(err);
+      });
+  };
+
+  const signUp = () => {
+    let data = {
+      username,
+      password,
       emailId,
     };
     axios
@@ -92,6 +114,7 @@ export default function Login(props) {
         if (response.status === 200) {
           sessionStorage.setItem("loggedInType", "admin");
           sessionStorage.setItem("id", response.data._id);
+          window.alert("Sign up complete");
         }
       })
       .catch((err) => {
