@@ -61,7 +61,7 @@ export default function WhomToContact() {
               <Paper
                 className={GridClasses.paper}
                 elevation={8}
-                style={{ borderRadius: "45px" }}
+                style={{ borderRadius: "45px", height: "250px" }}
               >
                 <h2 className="appHeadings">
                   <StarIcon></StarIcon>Police and Animal Control
@@ -82,7 +82,7 @@ export default function WhomToContact() {
               <Paper
                 className={GridClasses.paper}
                 elevation={8}
-                style={{ borderRadius: "45px" }}
+                style={{ borderRadius: "45px", height: "250px" }}
               >
                 <h2 className="appHeadings">
                   <LockIcon></LockIcon>Pounds and Shelters
@@ -109,7 +109,7 @@ export default function WhomToContact() {
               <Paper
                 className={GridClasses.paper}
                 elevation={8}
-                style={{ borderRadius: "45px" }}
+                style={{ borderRadius: "45px", height: "380px" }}
               >
                 <h2 className="appHeadings">
                   <HomeIcon></HomeIcon>Humane Societies
@@ -142,7 +142,7 @@ export default function WhomToContact() {
               <Paper
                 className={GridClasses.paper}
                 elevation={8}
-                style={{ borderRadius: "45px" }}
+                style={{ borderRadius: "45px", height: "380px" }}
               >
                 <h2 className="appHeadings">
                   <PersonIcon></PersonIcon>Rescue Groups
