@@ -6,9 +6,12 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import { Route, Redirect, Link } from "react-router-dom";
+import { Row, Col } from "antd";
 import MenuIcon from "@material-ui/icons/Menu";
 import LandingPage from "../LandingPage/landingpage";
 import p4 from "../../Icons/p4.webp";
+import { Card } from "antd";
+import "./footer.css";
 
 class Navbar extends Component {
   constructor(props) {
@@ -27,18 +30,6 @@ class Navbar extends Component {
       },
     })),
     redirect: null,
-  };
-
-  redirectToLandingPage = () => {
-    this.setState({
-      redirect: <Redirect to="/landingpage"></Redirect>,
-    });
-  };
-
-  redirectToHomePage = () => {
-    this.setState({
-      redirect: <Redirect to="/home"></Redirect>,
-    });
   };
 
   render() {
@@ -108,11 +99,24 @@ class Navbar extends Component {
                   fontWeight: "540",
                   fontFamily: "Georgia, serif",
                 }}
-                to="/info"
+                to="/whomtocontact"
               >
                 Contact
               </Link>
             </Typography>
+            <Typography style={{ marginLeft: "1%" }}>
+              <Link
+                style={{
+                  color: "black",
+                  fontWeight: "540",
+                  fontFamily: "Georgia, serif",
+                }}
+                to="/stolenpets"
+              >
+                Stolen Pets
+              </Link>
+            </Typography>
+
             <Typography style={{ marginLeft: "1%" }}>
               <Link
                 style={{
@@ -127,6 +131,9 @@ class Navbar extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
+        {/* ---------------------------------------------footer--------------------------------------------------
+                
+        ----------------------------------------------------------------------------------------------------- */}
       </div>
     );
   }

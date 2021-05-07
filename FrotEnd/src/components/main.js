@@ -8,7 +8,9 @@ import Maps from "./GoogleMaps/maps";
 import FileUpload from "../components/Upload/upload";
 import pdfGenerator from "./PDFgenerator/pdfgenerator";
 import LandingPage from "./LandingPage/landingpage";
-import Info from "./Info/info";
+
+import WhomToContact from "./Info/WhomToContact";
+import stolenpets from "./Info/stolenpets";
 
 class Main extends Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class Main extends Component {
     return (
       <div>
         <Route path="/" component={Navbar} />
-        <div style={{ marginLeft: "10%", marginRight: "10%" }}>
+        <div>
           <Route path="/login" component={Login} />
           <Route path="/lost" component={Lost} />
           <Route path="/home" component={Home} />
@@ -27,7 +29,8 @@ class Main extends Component {
           <Route path="/upload" component={FileUpload} />
           <Route path="/pdf" component={pdfGenerator} />
           <Route path="/landingpage" component={LandingPage} />
-          <Route path="/info" component={Info} />
+          <Route path="/whomtocontact" component={WhomToContact} />
+          <Route path="/stolenpets" component={stolenpets} />
         </div>
       </div>
     );
