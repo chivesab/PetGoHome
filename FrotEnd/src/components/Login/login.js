@@ -197,14 +197,25 @@ export default function Login(props) {
           spacing={1}
           style={{ marginTop: "7%", justifyContent: "center" }}
         >
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={signIn}
-            className={button.button}
-          >
-            {showemail ? "Sign Up" : "Sign In"}
-          </Button>
+          {showemail ? (
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={signUp}
+              className={button.button}
+            >
+              Sign Up
+            </Button>
+          ) : (
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={signIn}
+              className={button.button}
+            >
+              Sign In
+            </Button>
+          )}
         </Grid>
         <Grid container style={{ marginTop: "5%", justifyContent: "center" }}>
           {!showemail ? "Need an Account?" : "Already Have an Account! "}
