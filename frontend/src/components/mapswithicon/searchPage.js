@@ -308,5 +308,5 @@ function PlacesAuto(props) {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyDKT5mLiGAU26aO5yCoHbQwHVOX2W5JHp0",
+  apiKey: "",
 })(PlacesAuto);
