@@ -135,5 +135,5 @@ class SightingLocation extends Component {
 
 // export default Home;
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyDKT5mLiGAU26aO5yCoHbQwHVOX2W5JHp0",
+  apiKey: "",
 })(SightingLocation);
