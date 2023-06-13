@@ -1,6 +1,4 @@
-### Team10 Project Idea: 
-
-# Pet Go Home - Approved 
+# Pet Go Home
 
 1. ### Introduction to the problem statement
     Research has confirmed that for most people, the loss of a pet is comparable to the loss of a loved one. Pets became a very significant part for many, in today’s life.<br />
